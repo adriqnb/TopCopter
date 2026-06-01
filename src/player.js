@@ -39,11 +39,11 @@ class Player {
     
     if (keyIsDown(65)) { // A 
       this.vel.x -= .75+(speedMod/7);
-    } else if (keyIsDown(68)) { // S
+    } else if (keyIsDown(68)) { // D
       this.vel.x +=.75+(speedMod/7);
     }
 
-    if (keyIsDown(83)) // D
+    if (keyIsDown(83)) // S
       this.vel.y +=.75+(speedMod/7);
     //----------------------------------
     //          Afterburner
@@ -56,7 +56,7 @@ class Player {
   checkShooting() {
     //----------------------------------
     //    Check for shooting input
-    if (keyIsDown(32) && (millis() > (lastShotTime + (1000 - bulletSpeedMod*50)))) { // (lastShotTime + interval between bullets) s
+    if ((keyIsDown(32) || (mouseIsPressed == 1)) && (millis() > (lastShotTime + (1000 - bulletSpeedMod*50)))) { // (lastShotTime + interval between bullets)
       playerBulletArr.push(new Bullet(1));
 
       spriteCrosshair.reset();

@@ -161,8 +161,8 @@ function keyPressed() {
   if (key === "y" || key === "Y") {
     smallHealthPacks.push(new SmallHealthPack(hpX, hpY));
   }
-  // Start wave on ENTER/RETURN key press
-  if (keyCode === ENTER && !powerUpScreen) {
+  // Start wave on E key press
+  if ((key === "e" || key === "E") && !powerUpScreen) {
     start = true;
     showReminder = false;
   }
@@ -185,7 +185,7 @@ function startMenu() {
     fill(255);
     textSize(20);
     textAlign(CENTER);
-    text("Use [W][A][S][D] to move, mouse to aim,\n[Space] to shoot, [Enter]/[Return] to start wave.", width/2, 120*(height/1080));
+    text("Use [W][A][S][D] to move, mouse to aim,\n[Space]/[LMB] to shoot, [E] to start wave.", width/2, 120*(height/1080));
     textSize(40);
     text("Press any key to start", width/2, height-200*(height/1080));
     pop();
@@ -213,7 +213,7 @@ function startMenu() {
     fill(255);
     textSize(20);
     textAlign(CENTER);
-    text("[Enter]/[Return] to start wave.", width/2, 120*(height/1080));
+    text("[E] to start wave.", width/2, 120*(height/1080));
     textSize(40);
     pop();
   }
