@@ -98,7 +98,7 @@ class Boss {
         healthScore += 20; // increase health score for health packs
         bossHitSound.play();
 
-        if (this.health == 0) { // if boss health = 0
+        if (this.health == 0 || this.type == 4) { // if boss health = 0
           // remove self from the array
           bossCopters.splice(i,1);
           i--;
