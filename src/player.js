@@ -66,6 +66,18 @@ class Player {
 
       lastShotTime = millis();
     }
+    // fire one-shot bullet
+    if (((key === "f" || key === "F") && (oneShots != 0) && (millis() > (lastShotTime + (1000 - bulletSpeedMod*50))))) {
+      playerBulletArr.push(new Bullet(4))
+      oneShots--;
+
+      spriteCrosshair.reset();
+
+      // audio play shoot sound
+      shootSound.play();
+
+      lastShotTime = millis();
+    }
   }
 
   checkCollision() {

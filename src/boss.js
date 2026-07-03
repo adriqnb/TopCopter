@@ -90,15 +90,7 @@ class Boss {
     // check for collisions with any player bullet
     for (let j = 0; j < playerBulletArr.length; j++) {
       if (playerBulletArr.length != 0 && isCollision(playerBulletArr[j].pos, this.pos, playerBulletArr[j].size, this.rectWidth, this.rectHeight)) {
-        // remove the detected bullet from the array
-        playerBulletArr.splice(j,1);
-        j--;
-
-        this.health -= 10; // remove 10 health from boss
-        healthScore += 20; // increase health score for health packs
-        bossHitSound.play();
-
-        if (this.health == 0) { // if boss health = 0
+        if ((this.health == 10) || (playerBulletArr[j].type == 4)) { // if boss health = 0
           // remove self from the array
           bossCopters.splice(i,1);
           i--;
@@ -115,6 +107,14 @@ class Boss {
           // audio play enemy death sound
           enemyDeathSound.play();
         }
+        
+        // remove the detected bullet from the array
+        playerBulletArr.splice(j,1);
+        j--;
+
+        this.health -= 10; // remove 10 health from boss
+        healthScore += 20; // increase health score for health packs
+        bossHitSound.play();
       }
     }
   }

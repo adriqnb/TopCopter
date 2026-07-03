@@ -18,13 +18,14 @@ let healthScore = 0; // score counter for health pack spawn
 let powerUpScreen = false; // is power up selection screen active
 
 //power up modifiers
+let oneShots = 0;
 let bulletSpeedMod = 0;
 let healOnKillMod = 0;
 let speedMod = 0;
 
 // randomize power up choices
 function randomizePowerUp() {
-  choice = (int(random(0,4)));
+  choice = (int(random(0,3)));
   choice2 = (int(random(0,4)));
   while (choice === choice2) {
     choice2 = (int(random(0,4)));
@@ -37,11 +38,13 @@ function drawPowerText(selectedPower) {
   if (selectedPower === 0)
     return ("Increase Fire Rate");
   else if (selectedPower === 1)
-    return ("Increase Health On Kill");
+    return ("Increase Heal On Kill");
   else if (selectedPower === 2)
     return ("Increase Max HP by 10");
-  else 
-    return ("Increase Speed"); 
+  else if (selectedPower === 3)
+    return ("+1 One-shot Kill");
+  else
+    return ("Increase Speed");
 }
 
 // apply selected power up effects
@@ -54,7 +57,9 @@ function powerUp(power) {
     healOnKillMod++;
   } else if (power === 2) {
     // max health increase
-    player.maxHealth += 10;
+    player.maxHealth += 5;
+  } else if (power === 3) {
+    oneShots++;
   } else {
     // player speed increase
     speedMod++;

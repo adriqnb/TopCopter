@@ -110,6 +110,15 @@ function draw() {
     text("Wave " + wave, width/20, height/10);
     pop();
 
+    //draw current one-shots
+    push();
+    fill(255);
+    textSize(30);
+    shadow('rgba(0, 0, 0, 1)');
+    text("[F] One-shots: " + oneShots, width/20-51, height/10+40);
+    pop();
+
+
     updateWave();
 
     drawPowerUpScreen();
