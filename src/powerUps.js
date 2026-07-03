@@ -28,7 +28,7 @@ function randomizePowerUp() {
   choice = (int(random(0,3)));
   choice2 = (int(random(0,4)));
   while (choice === choice2) {
-    choice2 = (int(random(0,4)));
+    choice2 = (int(random(0,5)));
   }
   powerUpChosen = true;
 }
